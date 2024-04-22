@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: flask-lambda-python36
+Version: 0.1.1
+Summary: Python3.6+ module to make Flask compatible with AWS Lambda
+Home-page: https://github.com/techjacker/flask-lambda
+Author: Andrew Griffiths
+Author-email: mail@andrewgriffithsonline.com
+License: Apache License, Version 2.0
+Keywords: flask aws amazon lambda
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Environment :: Console
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+License-File: LICENSE
+Requires-Dist: Flask (>=0.10)
+

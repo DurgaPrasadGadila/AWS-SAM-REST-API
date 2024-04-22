@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: CRUD API for student information using AWS Lambda and DynamoDB
+Globals:
+  Function:
+    Runtime: python3.9
+    Timeout: 30
+Resources:
+  StudentInfoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.lambda_handler
+      CodeUri: students/
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: "student_info"
+      Events:
+        GetStatus:
+          Type: Api
+          Properties:
+            Path: /status
+            Method: get
+        GetStudent:
+          Type: Api
+          Properties:
+            Path: /student
+            Method: get
+        GetStudents:
+          Type: Api
+          Properties:
+            Path: /students
+            Method: get
+        PostStudent:
+          Type: Api
+          Properties:
+            Path: /student
+            Method: post
+        PatchStudent:
+          Type: Api
+          Properties:
+            Path: /student
+            Method: patch
+        DeleteStudent:
+          Type: Api
+          Properties:
+            Path: /student
+            Method: delete
+Outputs:
+  StudentInfoApi:
+    Description: API Gateway endpoint URL for Student Info Function
+    Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/
